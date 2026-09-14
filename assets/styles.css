@@ -30,17 +30,6 @@
   --gutter: clamp(20px, 5vw, 64px);
 }
 
-/* ---------- theme transition (View Transitions API) ---------- */
-::view-transition-old(root),
-::view-transition-new(root){
-  animation-duration:0.4s;
-  animation-timing-function:ease;
-}
-::view-transition-old(root){ animation-name:vt-out; }
-::view-transition-new(root){ animation-name:vt-in; }
-@keyframes vt-out{ to{ clip-path:circle(0 at var(--vt-x,50%) var(--vt-y,50%)); } }
-@keyframes vt-in{ from{ clip-path:circle(0 at var(--vt-x,50%) var(--vt-y,50%)); } }
-
 /* ---------- light theme (cream paper on ink linework) ---------- */
 @media (prefers-color-scheme: light){
   :root:not([data-theme]){
@@ -88,14 +77,21 @@ html{ scroll-behavior:smooth; }
   *,*::before,*::after{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
 }
 
+/* body is transparent; the background is painted by body::before so the
+   theme switch can wipe the old palette (see --vt-* in theme-reveal below) */
 body{
   margin:0;
-  background:var(--ink);
+  background:transparent;
   color:var(--paper);
   font-family:var(--sans);
   font-size:17px;
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed; inset:0; z-index:-1;
+  background:var(--ink);
 }
 
 h1,h2,h3{
@@ -242,6 +238,25 @@ header.nav{
   background:var(--hover-wash); border-color:var(--signal); color:var(--paper);
 }
 .nav-mobile-toggle{ display:none; }
+
+/* ---------- theme reveal: the old palette wipes away from the click point ----------
+   body is transparent and body::before paints the background. On a theme switch we
+   paint a fixed .theme-reveal layer with the PREVIOUS palette and animate its
+   clip-path circle to 0, uncovering the new theme underneath. Pure CSS/JS so it
+   works in Firefox (no View Transitions needed). */
+.theme-reveal{
+  position:fixed; inset:0; z-index:9999; pointer-events:none;
+  background:var(--vt-bg);
+  clip-path:circle(var(--vt-r,150vmax) at var(--vt-x,50%) var(--vt-y,50%));
+  will-change:clip-path;
+}
+.theme-reveal.is-animating{
+  animation:theme-reveal 0.55s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes theme-reveal{
+  from{ clip-path:circle(var(--vt-r,150vmax) at var(--vt-x,50%) var(--vt-y,50%)); }
+  to{   clip-path:circle(0px at var(--vt-x,50%) var(--vt-y,50%)); }
+}
 
 @media (max-width: 860px){
   .nav-links{ display:none; }

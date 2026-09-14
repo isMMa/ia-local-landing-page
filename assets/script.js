@@ -15,20 +15,24 @@
   }
 
   function apply(theme, origin) {
-    var doApply = function () {
-      root.setAttribute('data-theme', theme);
-      document.querySelectorAll('.theme-toggle-btn').forEach(function (btn) {
-        btn.setAttribute('aria-pressed', String(btn.dataset.theme === theme));
-      });
-    };
-    // cross-fade the whole sheet when the browser supports View Transitions
-    if (document.startViewTransition && origin) {
-      root.style.setProperty('--vt-x', (origin.clientX / window.innerWidth * 100) + '%');
-      root.style.setProperty('--vt-y', (origin.clientY / window.innerHeight * 100) + '%');
-      document.startViewTransition(doApply);
-    } else {
-      doApply();
-    }
+    // the old palette still in effect (before we flip data-theme)
+    var oldBg = getComputedStyle(document.body).backgroundColor;
+    root.setAttribute('data-theme', theme);
+    document.querySelectorAll('.theme-toggle-btn').forEach(function (btn) {
+      btn.setAttribute('aria-pressed', String(btn.dataset.theme === theme));
+    });
+    if (!origin) return;
+    // cover with the old palette, then wipe it away from the click point
+    var reveal = document.createElement('div');
+    reveal.className = 'theme-reveal';
+    reveal.style.setProperty('--vt-bg', oldBg);
+    reveal.style.setProperty('--vt-x', (origin.clientX / window.innerWidth * 100) + '%');
+    reveal.style.setProperty('--vt-y', (origin.clientY / window.innerHeight * 100) + '%');
+    reveal.style.setProperty('--vt-r', '150vmax');
+    document.body.appendChild(reveal);
+    requestAnimationFrame(function () { reveal.classList.add('is-animating'); });
+    reveal.addEventListener('animationend', function () { reveal.remove(); });
+    setTimeout(function () { if (reveal.parentNode) reveal.remove(); }, 900);
   }
 
   window.addEventListener('DOMContentLoaded', function () {
