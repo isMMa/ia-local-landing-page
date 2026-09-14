@@ -262,7 +262,7 @@ header.nav{
 
 /* ---------- solution legend ---------- */
 .legend-grid{
-  display:grid; grid-template-columns:repeat(3, 1fr); gap:1px;
+  display:grid; grid-template-columns:repeat(4, 1fr); gap:1px;
   background:var(--line); border:1px solid var(--line);
 }
 .legend-item{ background:var(--ink); padding:36px 30px; }
