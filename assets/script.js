@@ -14,25 +14,52 @@
     return stored === 'light' || stored === 'dark' ? stored : systemPref();
   }
 
+  function clonePage() {
+    // full clone of the live page; it inherits <html data-theme> so it renders in that theme
+    var clone = document.body.cloneNode(true);
+    clone.querySelectorAll('script').forEach(function (n) { n.remove(); });
+    clone.querySelectorAll('.theme-reveal').forEach(function (n) { n.remove(); });
+    clone.querySelectorAll('[id]').forEach(function (n) { n.removeAttribute('id'); });
+    return clone;
+  }
+
   function apply(theme, origin) {
-    // the old palette still in effect (before we flip data-theme)
-    var oldBg = getComputedStyle(document.body).backgroundColor;
     root.setAttribute('data-theme', theme);
     document.querySelectorAll('.theme-toggle-btn').forEach(function (btn) {
       btn.setAttribute('aria-pressed', String(btn.dataset.theme === theme));
     });
     if (!origin) return;
-    // cover with the old palette, then wipe it away from the click point
-    var reveal = document.createElement('div');
-    reveal.className = 'theme-reveal';
-    reveal.style.setProperty('--vt-bg', oldBg);
-    reveal.style.setProperty('--vt-x', (origin.clientX / window.innerWidth * 100) + '%');
-    reveal.style.setProperty('--vt-y', (origin.clientY / window.innerHeight * 100) + '%');
-    reveal.style.setProperty('--vt-r', '150vmax');
-    document.body.appendChild(reveal);
-    requestAnimationFrame(function () { reveal.classList.add('is-animating'); });
-    reveal.addEventListener('animationend', function () { reveal.remove(); });
-    setTimeout(function () { if (reveal.parentNode) reveal.remove(); }, 900);
+
+    var cx = origin.clientX, cy = origin.clientY;
+    var xPct = (cx / window.innerWidth * 100) + '%';
+    var yPct = (cy / window.innerHeight * 100) + '%';
+    // radius that always covers the whole viewport from the click point
+    var dx = Math.max(cx, window.innerWidth - cx);
+    var dy = Math.max(cy, window.innerHeight - cy);
+    var radius = Math.round(Math.sqrt(dx * dx + dy * dy)) + 20;
+
+    // new theme: clone AFTER the flip (renders in the new theme), shown underneath
+    var newLayer = clonePage();
+
+    // old theme: restore the previous data-theme on this clone, shown on top
+    var prev = (theme === 'light') ? 'dark' : 'light';
+    root.setAttribute('data-theme', prev);
+    var oldLayer = clonePage();
+    root.setAttribute('data-theme', theme); // restore
+
+    var wrap = document.createElement('div');
+    wrap.className = 'theme-reveal';
+    wrap.appendChild(newLayer);
+    wrap.appendChild(oldLayer);
+    wrap.style.setProperty('--vt-x', xPct);
+    wrap.style.setProperty('--vt-y', yPct);
+    wrap.style.setProperty('--vt-r', radius + 'px');
+    document.body.appendChild(wrap);
+
+    requestAnimationFrame(function () { wrap.classList.add('is-animating'); });
+    var done = function () { if (wrap.parentNode) wrap.remove(); };
+    wrap.querySelector('.theme-reveal-old').addEventListener('animationend', done);
+    setTimeout(done, 900);
   }
 
   window.addEventListener('DOMContentLoaded', function () {

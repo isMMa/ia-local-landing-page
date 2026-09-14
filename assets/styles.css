@@ -239,18 +239,23 @@ header.nav{
 }
 .nav-mobile-toggle{ display:none; }
 
-/* ---------- theme reveal: the old palette wipes away from the click point ----------
-   body is transparent and body::before paints the background. On a theme switch we
-   paint a fixed .theme-reveal layer with the PREVIOUS palette and animate its
-   clip-path circle to 0, uncovering the new theme underneath. Pure CSS/JS so it
-   works in Firefox (no View Transitions needed). */
+/* ---------- theme reveal: a circle uncovers the new theme from the click point ----------
+   On a theme switch JS overlays two full-screen copies of the page inside
+   <div class="theme-reveal">: .theme-reveal-new (below) already shows the NEW theme,
+   and .theme-reveal-old (above) still shows the OLD theme (snapshot taken before the
+   flip). We animate the old layer's clip-path circle from full-screen down to 0,
+   uncovering the new theme from the click point. Pure CSS/JS, works in Firefox. */
 .theme-reveal{
-  position:fixed; inset:0; z-index:9999; pointer-events:none;
-  background:var(--vt-bg);
+  position:fixed; inset:0; z-index:9999; overflow:hidden; pointer-events:none;
+}
+.theme-reveal > div{
+  position:absolute; inset:0; overflow:hidden;
+}
+.theme-reveal > .theme-reveal-old{
   clip-path:circle(var(--vt-r,150vmax) at var(--vt-x,50%) var(--vt-y,50%));
   will-change:clip-path;
 }
-.theme-reveal.is-animating{
+.theme-reveal.is-animating > .theme-reveal-old{
   animation:theme-reveal 0.55s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 @keyframes theme-reveal{
