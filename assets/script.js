@@ -14,21 +14,31 @@
     return stored === 'light' || stored === 'dark' ? stored : systemPref();
   }
 
-  function apply(theme) {
-    root.setAttribute('data-theme', theme);
-    document.querySelectorAll('.theme-toggle-btn').forEach(function (btn) {
-      btn.setAttribute('aria-pressed', String(btn.dataset.theme === theme));
-    });
+  function apply(theme, origin) {
+    var doApply = function () {
+      root.setAttribute('data-theme', theme);
+      document.querySelectorAll('.theme-toggle-btn').forEach(function (btn) {
+        btn.setAttribute('aria-pressed', String(btn.dataset.theme === theme));
+      });
+    };
+    // cross-fade the whole sheet when the browser supports View Transitions
+    if (document.startViewTransition && origin) {
+      root.style.setProperty('--vt-x', (origin.clientX / window.innerWidth * 100) + '%');
+      root.style.setProperty('--vt-y', (origin.clientY / window.innerHeight * 100) + '%');
+      document.startViewTransition(doApply);
+    } else {
+      doApply();
+    }
   }
 
   window.addEventListener('DOMContentLoaded', function () {
     apply(resolve());
 
     document.querySelectorAll('.theme-toggle-btn').forEach(function (btn) {
-      btn.addEventListener('click', function () {
+      btn.addEventListener('click', function (e) {
         var theme = btn.dataset.theme;
-        try { localStorage.setItem(KEY, theme); } catch (e) {}
-        apply(theme);
+        try { localStorage.setItem(KEY, theme); } catch (e2) {}
+        apply(theme, { clientX: e.clientX, clientY: e.clientY });
       });
     });
 

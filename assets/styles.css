@@ -30,6 +30,17 @@
   --gutter: clamp(20px, 5vw, 64px);
 }
 
+/* ---------- theme transition (View Transitions API) ---------- */
+::view-transition-old(root),
+::view-transition-new(root){
+  animation-duration:0.4s;
+  animation-timing-function:ease;
+}
+::view-transition-old(root){ animation-name:vt-out; }
+::view-transition-new(root){ animation-name:vt-in; }
+@keyframes vt-out{ to{ clip-path:circle(0 at var(--vt-x,50%) var(--vt-y,50%)); } }
+@keyframes vt-in{ from{ clip-path:circle(0 at var(--vt-x,50%) var(--vt-y,50%)); } }
+
 /* ---------- light theme (cream paper on ink linework) ---------- */
 @media (prefers-color-scheme: light){
   :root:not([data-theme]){
