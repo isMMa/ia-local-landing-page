@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Muralla — IA privada para despachos y clínicas | Cumplimiento del AI Act</title>
-<meta name="description" content="Instalamos y gestionamos vuestra propia infraestructura de IA, en vuestro servidor o el nuestro, dentro de la UE. Modelos abiertos, sin fuga de datos, preparado para el Reglamento (UE) 2024/1689 desde el primer día.">
+<title>IA Local — infraestructura de IA privada para tu empresa | by AgeingLab</title>
+<meta name="description" content="Instalamos y gestionamos tu propia infraestructura de IA, en tu servidor o en el nuestro, dentro de la UE. Modelos abiertos, sin fuga de datos, preparada para el Reglamento (UE) 2024/1689 desde el primer día. Un servicio de AgeingLab.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://muralla-ia.example/">
+<link rel="icon" type="image/png" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
 <link rel="alternate" hreflang="es" href="https://muralla-ia.example/">
 <link rel="alternate" hreflang="en" href="https://muralla-ia.example/en/">
 <link rel="alternate" hreflang="x-default" href="https://muralla-ia.example/">
@@ -15,15 +17,15 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
 <meta property="og:locale:alternate" content="en_US">
-<meta property="og:site_name" content="Muralla">
-<meta property="og:title" content="Muralla — IA privada para despachos y clínicas">
-<meta property="og:description" content="Vuestra propia infraestructura de IA, dentro de vuestras paredes. Sin fuga de datos. Preparada para el AI Act.">
+<meta property="og:site_name" content="IA Local — by AgeingLab">
+<meta property="og:title" content="IA Local — infraestructura de IA privada para tu empresa">
+<meta property="og:description" content="Vuestra propia infraestructura de IA, dentro de vuestras paredes. Sin fuga de datos. Preparada para el AI Act. Un servicio de AgeingLab.">
 <meta property="og:url" content="https://muralla-ia.example/">
 <meta property="og:image" content="https://muralla-ia.example/assets/og-cover.png">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Muralla — IA privada para despachos y clínicas">
+<meta name="twitter:title" content="IA Local — infraestructura de IA privada para tu empresa">
 <meta name="twitter:description" content="Instalamos y gestionamos vuestra propia infraestructura de IA. Sin fuga de datos. Preparada para el AI Act.">
 <meta name="twitter:image" content="https://muralla-ia.example/assets/og-cover.png">
 
@@ -36,8 +38,10 @@
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "name": "Muralla",
-  "description": "Infraestructura de IA privada, instalada y gestionada para despachos profesionales y clínicas en España y la Unión Europea, con cumplimiento del Reglamento (UE) 2024/1689.",
+  "name": "IA Local",
+  "brand": "IA Local",
+  "provider": { "@type": "Organization", "name": "AgeingLab" },
+  "description": "Infraestructura de IA privada, instalada y gestionada para cualquier empresa en España y la Unión Europea, con cumplimiento del Reglamento (UE) 2024/1689.",
   "url": "https://muralla-ia.example/",
   "areaServed": ["ES", "EU"],
   "address": {
@@ -60,7 +64,13 @@
 
   <header class="nav">
     <div class="nav-inner">
-      <a href="#top" class="wordmark"><span class="mark" aria-hidden="true"></span>Muralla</a>
+      <div class="brand-group">
+        <a href="#top" class="wordmark"><span class="mark" aria-hidden="true"></span>IA Local</a>
+        <div class="by-line" aria-label="por AgeingLab">
+          <span>by</span>
+          <img src="assets/ageinglab-logo.png" alt="AgeingLab" height="20">
+        </div>
+      </div>
       <nav class="nav-links" aria-label="Navegación principal">
         <a href="#como-funciona">Cómo funciona</a>
         <a href="#cumplimiento">Cumplimiento</a>
@@ -81,7 +91,7 @@
       <div class="wrap">
         <div class="hero-copy">
           <p class="tag">Infraestructura de IA privada</p>
-          <h1 id="hero-title">Vuestros datos de clientes no deberían salir del despacho.</h1>
+          <h1 id="hero-title">Los datos de tu empresa no deberían salir de tus paredes.</h1>
           <p class="lede">Diseñamos, instalamos y mantenemos vuestra propia infraestructura de IA — modelos abiertos, corriendo en vuestro servidor o en el nuestro — para que ningún prompt cruce la puerta hacia fuera.</p>
           <div class="hero-ctas">
             <a href="#contacto" class="btn btn-primary">Reservar una demo en directo</a>
@@ -93,7 +103,7 @@
       <div class="schematic-frame">
         <svg class="schematic" viewBox="0 0 1200 380" role="img" aria-labelledby="svg-title svg-desc" preserveAspectRatio="xMidYMid meet">
           <title id="svg-title">Esquema comparando dos rutas de datos</title>
-          <desc id="svg-desc">A la izquierda, un equipo de trabajo. Arriba, la ruta habitual: los datos cruzan un muro y salen hacia un servicio en la nube externa. Abajo, la ruta con Muralla: los datos van y vuelven a un servidor propio sin cruzar nunca el muro.</desc>
+          <desc id="svg-desc">A la izquierda, un equipo de trabajo. Arriba, la ruta habitual: los datos cruzan un muro y salen hacia un servicio en la nube externa. Abajo, la ruta con IA Local: los datos van y vuelven a un servidor propio sin cruzar nunca el muro.</desc>
 
           <!-- grid backdrop -->
           <g stroke="rgba(236,230,216,0.07)" stroke-width="1">
@@ -102,8 +112,8 @@
           </g>
 
           <!-- wall -->
-          <line x1="640" y1="30" x2="640" y2="350" stroke="var(--paper-dim, #ECE6D8)" stroke-width="2" stroke-dasharray="0" opacity="0.85"></line>
-          <text x="652" y="46" font-family="IBM Plex Mono, monospace" font-size="12" fill="#E3A64C">el muro de vuestra infraestructura</text>
+          <line x1="640" y1="30" x2="640" y2="350" stroke="#ECE6D8" stroke-width="2" stroke-dasharray="0" opacity="0.85"></line>
+          <text x="652" y="46" font-family="IBM Plex Mono, monospace" font-size="12" fill="#00BEB4">el muro de vuestra infraestructura</text>
 
           <!-- zone labels -->
           <text x="40" y="46" font-family="IBM Plex Mono, monospace" font-size="12" fill="rgba(236,230,216,0.55)">dentro</text>
@@ -134,7 +144,7 @@
           </g>
 
           <!-- ===== bottom lane: safe ===== -->
-          <text x="60" y="240" font-family="IBM Plex Mono, monospace" font-size="12.5" fill="#E3A64C">ruta con Muralla</text>
+          <text x="60" y="240" font-family="IBM Plex Mono, monospace" font-size="12.5" fill="#00BEB4">ruta con IA Local</text>
 
           <g transform="translate(60,262)">
             <rect x="0" y="0" width="34" height="24" rx="1" fill="none" stroke="#ECE6D8" stroke-width="1.4"></rect>
@@ -149,15 +159,15 @@
             <line x1="6" y1="10" x2="34" y2="10" stroke="#ECE6D8" stroke-width="1"></line>
             <line x1="6" y1="20" x2="34" y2="20" stroke="#ECE6D8" stroke-width="1"></line>
             <line x1="6" y1="30" x2="34" y2="30" stroke="#ECE6D8" stroke-width="1"></line>
-            <circle class="pulse-dot" cx="30" cy="30" r="2" fill="#E3A64C"></circle>
+            <circle class="pulse-dot" cx="30" cy="30" r="2" fill="#00BEB4"></circle>
           </g>
           <text x="410" y="312" font-family="IBM Plex Mono, monospace" font-size="11" fill="rgba(236,230,216,0.45)">servidor propio</text>
 
           <!-- safe packets -->
           <g>
-            <circle class="lane-safe" cx="110" cy="272" r="5" fill="#E3A64C"></circle>
-            <circle class="lane-safe d2" cx="110" cy="272" r="5" fill="#E3A64C"></circle>
-            <circle class="lane-safe d3" cx="110" cy="272" r="5" fill="#E3A64C"></circle>
+            <circle class="lane-safe" cx="110" cy="272" r="5" fill="#00BEB4"></circle>
+            <circle class="lane-safe d2" cx="110" cy="272" r="5" fill="#00BEB4"></circle>
+            <circle class="lane-safe d3" cx="110" cy="272" r="5" fill="#00BEB4"></circle>
           </g>
         </svg>
 
@@ -173,7 +183,7 @@
       <div class="wrap">
         <div class="section-head">
           <h2 id="problema-title">Ahora mismo, alguien de vuestro equipo está pegando datos de un cliente en un chat de IA.</h2>
-          <p>No hace falta mala intención. Hace falta que sea más rápido que buscar en el expediente. Y cada vez que ocurre, esos datos salen de vuestro control.</p>
+          <p>No hace falta mala intención. Hace falta que sea más rápido que seguir el proceso interno. Y cada vez que ocurre, esos datos salen de vuestro control.</p>
         </div>
 
         <div class="notes">
@@ -187,7 +197,7 @@
           </div>
           <div class="note">
             <div class="note-tag">cero trazabilidad</div>
-            <p><strong>Sin infraestructura propia, no hay registro que enseñar</strong> si un día un auditor, un cliente o un juez pregunta cómo se usó la IA en un caso concreto.</p>
+            <p><strong>Sin infraestructura propia, no hay registro que enseñar</strong> si un día un auditor, un cliente o un regulador pregunta cómo se usó la IA en un caso concreto.</p>
           </div>
         </div>
       </div>
@@ -327,7 +337,7 @@
         <div class="faq-list">
           <div class="faq-item" data-open="false">
             <button class="faq-q" aria-expanded="false">¿Y si ya usamos ChatGPT o Copilot?<span class="plus" aria-hidden="true">+</span></button>
-            <div class="faq-a"><div class="faq-a-inner"><p>Podéis seguir usándolos para lo que no sea sensible. Migramos primero los flujos con datos de clientes o pacientes a vuestra infraestructura propia, y ampliamos desde ahí a vuestro ritmo.</p></div></div>
+            <div class="faq-a"><div class="faq-a-inner"><p>Podéis seguir usándolos para lo que no sea sensible. Migramos primero los flujos con datos sensibles a vuestra infraestructura propia, y ampliamos desde ahí a vuestro ritmo.</p></div></div>
           </div>
           <div class="faq-item" data-open="false">
             <button class="faq-q" aria-expanded="false">¿Cuánto tarda un despliegue?<span class="plus" aria-hidden="true">+</span></button>
@@ -354,7 +364,7 @@
       <div class="wrap closing">
         <p class="tag">Siguiente paso</p>
         <h2 id="closing-title">Hablemos de dónde están hoy vuestros datos.</h2>
-        <p style="margin-bottom:36px; font-size:17px;">Una demo de 30 minutos en nuestro propio servidor de pruebas, con un caso real de vuestro despacho o clínica.</p>
+        <p style="margin-bottom:36px; font-size:17px;">Una demo de 30 minutos en nuestro propio servidor de pruebas, con un caso real de vuestra empresa.</p>
         <div class="closing-ctas">
           <a href="mailto:hola@muralla-ia.example" class="btn btn-primary">Reservar una demo</a>
           <a href="mailto:hola@muralla-ia.example" class="btn btn-ghost">Escribir un correo</a>
@@ -366,7 +376,12 @@
 
   <footer class="site-foot">
     <div class="wrap" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px; width:100%;">
-      <div class="foot-brand">Muralla<small>Infraestructura de IA privada para despachos y clínicas.</small></div>
+      <div class="foot-brand">IA Local<small>Infraestructura de IA privada para cualquier empresa.</small>
+        <div class="by-line" style="border-left:none; padding-left:0; margin-top:14px;">
+          <span>by</span>
+          <img src="assets/ageinglab-logo.png" alt="AgeingLab" height="22">
+        </div>
+      </div>
       <div class="foot-meta">
         <div><a href="mailto:hola@muralla-ia.example">hola@muralla-ia.example</a></div>
         <div>Madrid, España</div>
