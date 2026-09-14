@@ -33,6 +33,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
+<script>
+(function(){try{var t=localStorage.getItem('muralla-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
 
 <script type="application/ld+json">
 {
@@ -78,6 +81,14 @@
         <a href="#preguntas">Preguntas</a>
       </nav>
       <div style="display:flex; align-items:center; gap:14px;">
+        <div class="theme-toggle" role="group" aria-label="Apariencia">
+          <button type="button" class="theme-toggle-btn" data-theme="dark" aria-pressed="false" aria-label="Modo oscuro" title="Modo oscuro">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+          </button>
+          <button type="button" class="theme-toggle-btn" data-theme="light" aria-pressed="false" aria-label="Modo claro" title="Modo claro">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          </button>
+        </div>
         <a href="/en/" class="lang-switch" hreflang="en" lang="en">EN</a>
         <a href="#contacto" class="nav-cta">Reservar demo</a>
       </div>
@@ -106,68 +117,68 @@
           <desc id="svg-desc">A la izquierda, un equipo de trabajo. Arriba, la ruta habitual: los datos cruzan un muro y salen hacia un servicio en la nube externa. Abajo, la ruta con IA Local: los datos van y vuelven a un servidor propio sin cruzar nunca el muro.</desc>
 
           <!-- grid backdrop -->
-          <g stroke="rgba(236,230,216,0.07)" stroke-width="1">
+          <g stroke="var(--paper,0.07)" stroke-width="1">
             <line x1="0" y1="95" x2="1200" y2="95"></line>
             <line x1="0" y1="285" x2="1200" y2="285"></line>
           </g>
 
           <!-- wall -->
-          <line x1="640" y1="30" x2="640" y2="350" stroke="#ECE6D8" stroke-width="2" stroke-dasharray="0" opacity="0.85"></line>
-          <text x="652" y="46" font-family="IBM Plex Mono, monospace" font-size="12" fill="#00BEB4">el muro de vuestra infraestructura</text>
+          <line x1="640" y1="30" x2="640" y2="350" stroke="currentColor" stroke-width="2" stroke-dasharray="0" opacity="0.85"></line>
+          <text x="652" y="46" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--signal)">el muro de vuestra infraestructura</text>
 
           <!-- zone labels -->
-          <text x="40" y="46" font-family="IBM Plex Mono, monospace" font-size="12" fill="rgba(236,230,216,0.55)">dentro</text>
-          <text x="1130" y="46" font-family="IBM Plex Mono, monospace" font-size="12" text-anchor="end" fill="rgba(236,230,216,0.55)">fuera</text>
+          <text x="40" y="46" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--paper,0.55)">dentro</text>
+          <text x="1130" y="46" font-family="IBM Plex Mono, monospace" font-size="12" text-anchor="end" fill="var(--paper,0.55)">fuera</text>
 
           <!-- ===== top lane: leak ===== -->
-          <text x="60" y="112" font-family="IBM Plex Mono, monospace" font-size="12.5" fill="rgba(236,230,216,0.6)">ruta habitual</text>
+          <text x="60" y="112" font-family="IBM Plex Mono, monospace" font-size="12.5" fill="var(--paper,0.6)">ruta habitual</text>
 
           <!-- PC icon -->
           <g transform="translate(60,140)">
-            <rect x="0" y="0" width="34" height="24" rx="1" fill="none" stroke="#ECE6D8" stroke-width="1.4"></rect>
-            <rect x="4" y="4" width="26" height="14" fill="rgba(236,230,216,0.12)"></rect>
-            <line x1="10" y1="28" x2="24" y2="28" stroke="#ECE6D8" stroke-width="1.4"></line>
+            <rect x="0" y="0" width="34" height="24" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"></rect>
+            <rect x="4" y="4" width="26" height="14" fill="var(--paper,0.12)"></rect>
+            <line x1="10" y1="28" x2="24" y2="28" stroke="currentColor" stroke-width="1.4"></line>
           </g>
-          <text x="60" y="188" font-family="IBM Plex Mono, monospace" font-size="11" fill="rgba(236,230,216,0.45)">equipo</text>
+          <text x="60" y="188" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--paper,0.45)">equipo</text>
 
           <!-- cloud icon (external) -->
           <g transform="translate(1020,130)">
-            <path d="M10 34 h64 a16 16 0 0 0 0-32 a20 20 0 0 0-38-6 a14 14 0 0 0-26 8 a12 12 0 0 0 0 30 z" fill="none" stroke="#A8432E" stroke-width="1.4" stroke-dasharray="4 4"></path>
+            <path d="M10 34 h64 a16 16 0 0 0 0-32 a20 20 0 0 0-38-6 a14 14 0 0 0-26 8 a12 12 0 0 0 0 30 z" fill="none" stroke="var(--alert)" stroke-width="1.4" stroke-dasharray="4 4"></path>
           </g>
-          <text x="1020" y="188" font-family="IBM Plex Mono, monospace" font-size="11" fill="rgba(236,230,216,0.45)">nube externa</text>
+          <text x="1020" y="188" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--paper,0.45)">nube externa</text>
 
           <!-- leak packets -->
           <g>
-            <circle class="lane-leak" cx="110" cy="150" r="5" fill="#A8432E"></circle>
-            <circle class="lane-leak d2" cx="110" cy="150" r="5" fill="#A8432E"></circle>
-            <circle class="lane-leak d3" cx="110" cy="150" r="5" fill="#A8432E"></circle>
+            <circle class="lane-leak" cx="110" cy="150" r="5" fill="var(--alert)"></circle>
+            <circle class="lane-leak d2" cx="110" cy="150" r="5" fill="var(--alert)"></circle>
+            <circle class="lane-leak d3" cx="110" cy="150" r="5" fill="var(--alert)"></circle>
           </g>
 
           <!-- ===== bottom lane: safe ===== -->
-          <text x="60" y="240" font-family="IBM Plex Mono, monospace" font-size="12.5" fill="#00BEB4">ruta con IA Local</text>
+          <text x="60" y="240" font-family="IBM Plex Mono, monospace" font-size="12.5" fill="var(--signal)">ruta con IA Local</text>
 
           <g transform="translate(60,262)">
-            <rect x="0" y="0" width="34" height="24" rx="1" fill="none" stroke="#ECE6D8" stroke-width="1.4"></rect>
-            <rect x="4" y="4" width="26" height="14" fill="rgba(236,230,216,0.12)"></rect>
-            <line x1="10" y1="28" x2="24" y2="28" stroke="#ECE6D8" stroke-width="1.4"></line>
+            <rect x="0" y="0" width="34" height="24" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"></rect>
+            <rect x="4" y="4" width="26" height="14" fill="var(--paper,0.12)"></rect>
+            <line x1="10" y1="28" x2="24" y2="28" stroke="currentColor" stroke-width="1.4"></line>
           </g>
-          <text x="60" y="310" font-family="IBM Plex Mono, monospace" font-size="11" fill="rgba(236,230,216,0.45)">equipo</text>
+          <text x="60" y="310" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--paper,0.45)">equipo</text>
 
           <!-- local server icon -->
           <g transform="translate(410,254)">
-            <rect x="0" y="0" width="40" height="40" fill="none" stroke="#ECE6D8" stroke-width="1.4"></rect>
-            <line x1="6" y1="10" x2="34" y2="10" stroke="#ECE6D8" stroke-width="1"></line>
-            <line x1="6" y1="20" x2="34" y2="20" stroke="#ECE6D8" stroke-width="1"></line>
-            <line x1="6" y1="30" x2="34" y2="30" stroke="#ECE6D8" stroke-width="1"></line>
-            <circle class="pulse-dot" cx="30" cy="30" r="2" fill="#00BEB4"></circle>
+            <rect x="0" y="0" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.4"></rect>
+            <line x1="6" y1="10" x2="34" y2="10" stroke="currentColor" stroke-width="1"></line>
+            <line x1="6" y1="20" x2="34" y2="20" stroke="currentColor" stroke-width="1"></line>
+            <line x1="6" y1="30" x2="34" y2="30" stroke="currentColor" stroke-width="1"></line>
+            <circle class="pulse-dot" cx="30" cy="30" r="2" fill="var(--signal)"></circle>
           </g>
-          <text x="410" y="312" font-family="IBM Plex Mono, monospace" font-size="11" fill="rgba(236,230,216,0.45)">servidor propio</text>
+          <text x="410" y="312" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--paper,0.45)">servidor propio</text>
 
           <!-- safe packets -->
           <g>
-            <circle class="lane-safe" cx="110" cy="272" r="5" fill="#00BEB4"></circle>
-            <circle class="lane-safe d2" cx="110" cy="272" r="5" fill="#00BEB4"></circle>
-            <circle class="lane-safe d3" cx="110" cy="272" r="5" fill="#00BEB4"></circle>
+            <circle class="lane-safe" cx="110" cy="272" r="5" fill="var(--signal)"></circle>
+            <circle class="lane-safe d2" cx="110" cy="272" r="5" fill="var(--signal)"></circle>
+            <circle class="lane-safe d3" cx="110" cy="272" r="5" fill="var(--signal)"></circle>
           </g>
         </svg>
 
