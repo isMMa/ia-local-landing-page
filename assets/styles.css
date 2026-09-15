@@ -117,7 +117,7 @@ button{ font-family:inherit; cursor:pointer; }
     linear-gradient(var(--line) 1px, transparent 1px),
     linear-gradient(90deg, var(--line) 1px, transparent 1px);
   background-size: 56px 56px;
-  opacity:0.5;
+  opacity:0.3;
 }
 
 /* ---------- sheet frame with registration marks ---------- */
