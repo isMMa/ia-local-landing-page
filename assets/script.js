@@ -56,6 +56,15 @@
       else if (mq.addListener) mq.addListener(onSystemChange);
     }
 
+    // contact form: mirror the chosen option into the email subject
+    var interes = document.getElementById('cf-interes');
+    var subject = document.getElementById('cf-subject');
+    if (interes && subject) {
+      interes.addEventListener('change', function () {
+        subject.value = interes.value || subject.defaultValue;
+      });
+    }
+
     // scroll reveal: fade + rise as each block enters the viewport
     var revealEls = document.querySelectorAll('.reveal');
     if (revealEls.length && 'IntersectionObserver' in window) {

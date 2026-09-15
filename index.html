@@ -400,7 +400,7 @@
         <h2 id="closing-title">Hablemos de dónde están hoy vuestros datos.</h2>
         <p style="margin-bottom:36px; font-size:17px;">Una demo de 30 minutos en nuestro propio servidor de pruebas, con un caso real de vuestra empresa.</p>
         <form class="contact-form" action="https://formspree.io/f/myeyrqnr" method="POST">
-          <input type="text" name="_subject" value="Solicitud de demo — IA Local">
+          <input type="text" name="_subject" id="cf-subject" value="Consulta general — IA Local">
           <div class="cf-grid">
             <label>Nombre
               <input type="text" name="nombre" required>
@@ -412,12 +412,12 @@
               <input type="text" name="empresa">
             </label>
             <label>¿Qué os interesa?
-              <select name="interes" required>
+              <select name="interes" id="cf-interes" required>
                 <option value="" disabled selected>Elige una opción</option>
-                <option>Diagnóstico</option>
-                <option>Despliegue</option>
-                <option>Cuota mensual</option>
-                <option>Aún no lo sé</option>
+                <option value="Oferta 1: Solicitud de estudio - IA Local">Diagnóstico</option>
+                <option value="Oferta 2: Solicitud de despliegue - IA Local">Despliegue</option>
+                <option value="Oferta 3: Solicitud de servicio cuota mensual - IA Local">Cuota mensual</option>
+                <option value="Consulta general — IA Local">Aún no lo sé</option>
               </select>
             </label>
             <label class="cf-full">Cuéntanos brevemente vuestro caso

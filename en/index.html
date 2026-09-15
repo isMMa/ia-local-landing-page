@@ -388,7 +388,7 @@
         <h2 id="closing-title">Let's talk about where your data lives today.</h2>
         <p style="margin-bottom:36px; font-size:17px;">A 30-minute demo on our own test server, using a real case from your business.</p>
         <form class="contact-form" action="https://formspree.io/f/myeyrqnr" method="POST">
-          <input type="text" name="_subject" value="Demo request — IA Local">
+          <input type="text" name="_subject" id="cf-subject" value="General inquiry — IA Local">
           <div class="cf-grid">
             <label>Name
               <input type="text" name="nombre" required>
@@ -400,12 +400,12 @@
               <input type="text" name="empresa">
             </label>
             <label>What are you interested in?
-              <select name="interes" required>
+              <select name="interes" id="cf-interes" required>
                 <option value="" disabled selected>Choose one</option>
-                <option>Diagnosis</option>
-                <option>Deployment</option>
-                <option>Monthly fee</option>
-                <option>Not sure yet</option>
+                <option value="Offer 1: Study request - IA Local">Diagnosis</option>
+                <option value="Offer 2: Deployment request - IA Local">Deployment</option>
+                <option value="Offer 3: Monthly fee service request - IA Local">Monthly fee</option>
+                <option value="General inquiry — IA Local">Not sure yet</option>
               </select>
             </label>
             <label class="cf-full">Tell us briefly about your case
