@@ -235,6 +235,9 @@ header.nav{
 .theme-toggle-btn[aria-pressed="true"]{
   background:var(--hover-wash); border-color:var(--signal); color:var(--paper);
 }
+.theme-toggle-btn[data-theme="auto"].is-active{
+  background:var(--hover-wash); border-color:var(--signal); color:var(--paper);
+}
 .nav-mobile-toggle{ display:none; }
 
 @media (max-width: 860px){

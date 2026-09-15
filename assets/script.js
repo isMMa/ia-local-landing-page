@@ -11,24 +11,36 @@
   function resolve() {
     var stored = null;
     try { stored = localStorage.getItem(KEY); } catch (e) {}
-    return stored === 'light' || stored === 'dark' ? stored : systemPref();
+    var active = stored === 'light' || stored === 'dark' ? stored : 'auto';
+    var theme = active === 'auto' ? systemPref() : active;
+    return { mode: active, theme: theme };
   }
 
-  function apply(theme) {
+  function apply(theme, mode) {
     root.setAttribute('data-theme', theme);
+    mode = mode || (theme === systemPref() ? 'auto' : theme);
     document.querySelectorAll('.theme-toggle-btn').forEach(function (btn) {
-      btn.setAttribute('aria-pressed', String(btn.dataset.theme === theme));
+      var active = btn.dataset.theme === mode;
+      btn.setAttribute('aria-pressed', String(active));
+      if (active) btn.classList.add('is-active');
+      else btn.classList.remove('is-active');
     });
   }
 
   window.addEventListener('DOMContentLoaded', function () {
-    apply(resolve());
+    var initial = resolve();
+    apply(initial.theme, initial.mode);
 
     document.querySelectorAll('.theme-toggle-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        var theme = btn.dataset.theme;
-        try { localStorage.setItem(KEY, theme); } catch (e2) {}
-        apply(theme);
+        var mode = btn.dataset.theme;
+        if (mode === 'auto') {
+          try { localStorage.removeItem(KEY); } catch (e1) {}
+          apply(systemPref(), 'auto');
+        } else {
+          try { localStorage.setItem(KEY, mode); } catch (e2) {}
+          apply(mode, mode);
+        }
       });
     });
 
@@ -38,7 +50,7 @@
       var onSystemChange = function () {
         var stored = null;
         try { stored = localStorage.getItem(KEY); } catch (e) {}
-        if (!stored) apply(systemPref());
+        if (!stored) apply(systemPref(), 'auto');
       };
       if (mq.addEventListener) mq.addEventListener('change', onSystemChange);
       else if (mq.addListener) mq.addListener(onSystemChange);
