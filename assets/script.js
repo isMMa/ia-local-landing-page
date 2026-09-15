@@ -56,6 +56,22 @@
       else if (mq.addListener) mq.addListener(onSystemChange);
     }
 
+    // scroll reveal: fade + rise as each block enters the viewport
+    var revealEls = document.querySelectorAll('.reveal');
+    if (revealEls.length && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      revealEls.forEach(function (el) { io.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add('is-in'); });
+    }
+
     var items = document.querySelectorAll('.faq-item');
     items.forEach(function (item) {
       var btn = item.querySelector('.faq-q');

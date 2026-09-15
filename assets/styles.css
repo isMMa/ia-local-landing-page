@@ -80,6 +80,20 @@ html{ scroll-behavior:smooth; }
   *,*::before,*::after{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
 }
 
+/* ---------- scroll reveal ---------- */
+.reveal{
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-in{
+  opacity:1;
+  transform:none;
+}
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+}
+
 body{
   margin:0;
   background:transparent;
