@@ -482,6 +482,14 @@ header.nav{
 .datasheet-cta-row td{ padding:28px 20px; }
 .btn-tier{ width:100%; justify-content:center; padding:12px 18px; font-size:13px; }
 
+.badge-recommended{
+  display:inline-block; vertical-align:middle;
+  font-family:var(--mono); font-size:10px; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--signal); background:color-mix(in srgb, var(--signal) 14%, transparent);
+  border:1px solid var(--signal); border-radius:20px; padding:2px 7px; margin-left:6px;
+}
+select option .badge-recommended{ display:block; margin:4px 0 0; }
+
 /* recommended tier: top bar, side rules, tinted body, chip label */
 .datasheet thead th.tier-recommended{
   position:relative;
