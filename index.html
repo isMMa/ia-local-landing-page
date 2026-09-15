@@ -348,9 +348,9 @@
               </tr>
               <tr class="datasheet-cta-row">
                 <th scope="row"></th>
-                <td><a class="btn btn-ghost btn-tier" href="mailto:hola@muralla-ia.example?subject=Interesados%20en%20el%20Diagn%C3%B3stico">Pide el diagnóstico</a></td>
-                <td><a class="btn btn-primary btn-tier" href="mailto:hola@muralla-ia.example?subject=Interesados%20en%20el%20Despliegue">Reserva la demo</a></td>
-                 <td><a class="btn btn-ghost btn-tier" href="mailto:hola@muralla-ia.example?subject=Interesados%20en%20la%20Cuota%20mensual">Hablemos de la cuota</a></td>
+                <td><a class="btn btn-ghost btn-tier" href="#contacto">Pide el diagnóstico</a></td>
+                <td><a class="btn btn-primary btn-tier" href="#contacto">Reserva la demo</a></td>
+                  <td><a class="btn btn-ghost btn-tier" href="#contacto">Hablemos de la cuota</a></td>
               </tr>
             </tbody>
           </table>
@@ -405,10 +405,36 @@
           <p class="tag">Siguiente paso</p>
         <h2 id="closing-title">Hablemos de dónde están hoy vuestros datos.</h2>
         <p style="margin-bottom:36px; font-size:17px;">Una demo de 30 minutos en nuestro propio servidor de pruebas, con un caso real de vuestra empresa.</p>
-        <div class="closing-ctas">
-          <a href="mailto:hola@muralla-ia.example" class="btn btn-primary">Reservar una demo</a>
-          <a href="mailto:hola@muralla-ia.example" class="btn btn-ghost">Escribir un correo</a>
-        </div>
+        <form class="contact-form" action="https://formspree.io/f/myeyrqnr" method="POST">
+          <input type="text" name="_subject" value="Solicitud de demo — IA Local">
+          <div class="cf-grid">
+            <label>Nombre
+              <input type="text" name="nombre" required>
+            </label>
+            <label>Tu correo
+              <input type="email" name="email" required>
+            </label>
+            <label>Empresa (opcional)
+              <input type="text" name="empresa">
+            </label>
+            <label>¿Qué os interesa?
+              <select name="interes" required>
+                <option value="" disabled selected>Elige una opción</option>
+                <option>Diagnóstico</option>
+                <option>Despliegue</option>
+                <option>Cuota mensual</option>
+                <option>Aún no lo sé</option>
+              </select>
+            </label>
+            <label class="cf-full">Cuéntanos brevemente vuestro caso
+              <textarea name="mensaje" rows="4" required></textarea>
+            </label>
+          </div>
+          <div class="cf-actions">
+            <button type="submit" class="btn btn-primary">Reservar una demo</button>
+            <span class="cf-note">Respondemos en menos de 48 h.</span>
+          </div>
+        </form>
       </div>
     </section>
 

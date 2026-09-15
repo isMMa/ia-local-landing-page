@@ -532,6 +532,29 @@ header.nav{
 .closing h2{ font-size:clamp(28px,4vw,44px); max-width:680px; margin-bottom:28px; }
 .closing-ctas{ display:flex; gap:16px; flex-wrap:wrap; }
 
+/* ---------- contact form ---------- */
+.contact-form{ max-width:760px; }
+.cf-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:18px 20px;
+  margin-bottom:22px;
+}
+.cf-grid label{ display:flex; flex-direction:column; gap:8px; font-family:var(--mono); font-size:12px; color:var(--paper-dim); }
+.cf-full{ grid-column:1 / -1; }
+.contact-form input, .contact-form select, .contact-form textarea{
+  font-family:var(--sans); font-size:15px; color:var(--paper);
+  background:var(--hover-wash); border:1px solid var(--line-strong);
+  border-radius:2px; padding:12px 14px; width:100%;
+}
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus{
+  outline:none; border-color:var(--signal); box-shadow:0 0 0 2px var(--signal-glow);
+}
+.contact-form textarea{ resize:vertical; min-height:96px; }
+.cf-actions{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
+.cf-note{ font-family:var(--mono); font-size:12px; color:var(--paper-faint); }
+@media (max-width:640px){
+  .cf-grid{ grid-template-columns:1fr; }
+}
+
 /* ---------- footer ---------- */
 footer.site-foot{
   padding:56px 0 90px;

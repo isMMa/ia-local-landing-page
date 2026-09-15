@@ -336,9 +336,9 @@
               </tr>
               <tr class="datasheet-cta-row">
                 <th scope="row"></th>
-                <td><a class="btn btn-ghost btn-tier" href="mailto:hola@muralla-ia.example?subject=Interested%20in%20the%20Diagnosis">Request the diagnosis</a></td>
-                <td><a class="btn btn-primary btn-tier" href="mailto:hola@muralla-ia.example?subject=Interested%20in%20Deployment">Book a demo</a></td>
-                 <td><a class="btn btn-ghost btn-tier" href="mailto:hola@muralla-ia.example?subject=Interested%20in%20the%20Monthly%20fee">Let's talk the fee</a></td>
+                <td><a class="btn btn-ghost btn-tier" href="#contact">Request the diagnosis</a></td>
+                <td><a class="btn btn-primary btn-tier" href="#contact">Book a demo</a></td>
+                  <td><a class="btn btn-ghost btn-tier" href="#contact">Let's talk the fee</a></td>
               </tr>
             </tbody>
           </table>
@@ -393,10 +393,36 @@
         <p class="tag">Next step</p>
         <h2 id="closing-title">Let's talk about where your data lives today.</h2>
         <p style="margin-bottom:36px; font-size:17px;">A 30-minute demo on our own test server, using a real case from your business.</p>
-        <div class="closing-ctas">
-          <a href="mailto:hola@muralla-ia.example" class="btn btn-primary">Book a demo</a>
-          <a href="mailto:hola@muralla-ia.example" class="btn btn-ghost">Send an email</a>
-        </div>
+        <form class="contact-form" action="https://formspree.io/f/myeyrqnr" method="POST">
+          <input type="text" name="_subject" value="Demo request — IA Local">
+          <div class="cf-grid">
+            <label>Name
+              <input type="text" name="nombre" required>
+            </label>
+            <label>Your email
+              <input type="email" name="email" required>
+            </label>
+            <label>Company (optional)
+              <input type="text" name="empresa">
+            </label>
+            <label>What are you interested in?
+              <select name="interes" required>
+                <option value="" disabled selected>Choose one</option>
+                <option>Diagnosis</option>
+                <option>Deployment</option>
+                <option>Monthly fee</option>
+                <option>Not sure yet</option>
+              </select>
+            </label>
+            <label class="cf-full">Tell us briefly about your case
+              <textarea name="mensaje" rows="4" required></textarea>
+            </label>
+          </div>
+          <div class="cf-actions">
+            <button type="submit" class="btn btn-primary">Book a demo</button>
+            <span class="cf-note">We reply within 48 h.</span>
+          </div>
+        </form>
       </div>
     </section>
 
