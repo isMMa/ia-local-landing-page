@@ -13,7 +13,7 @@
   --paper:      #ECE6D8;
   --paper-dim:  rgba(236,230,216,0.62);
   --paper-faint:rgba(236,230,216,0.38);
-  --line:       rgba(236,230,216,0.16);
+  --line:       rgba(236,230,216,0.12);
   --line-strong:rgba(236,230,216,0.32);
   --signal:     #00BEB4;
   --signal-2:   #049389;
@@ -42,7 +42,7 @@
     --paper:      #14213A;
     --paper-dim:  rgba(20,33,58,0.68);
     --paper-faint:rgba(20,33,58,0.42);
-    --line:       rgba(20,33,58,0.16);
+    --line:       rgba(20,33,58,0.12);
     --line-strong:rgba(20,33,58,0.32);
     --signal:     #049389;
     --signal-2:   #037A72;
@@ -62,7 +62,7 @@
   --paper:      #14213A;
   --paper-dim:  rgba(20,33,58,0.68);
   --paper-faint:rgba(20,33,58,0.42);
-  --line:       rgba(20,33,58,0.16);
+  --line:       rgba(20,33,58,0.12);
   --line-strong:rgba(20,33,58,0.32);
   --signal:     #049389;
   --signal-2:   #037A72;
