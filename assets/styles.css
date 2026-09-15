@@ -283,9 +283,9 @@ header.nav{
 @keyframes leak-move{
   0%{ transform:translateX(0); opacity:0; }
   8%{ opacity:1; }
-  78%{ opacity:1; }
-  92%{ transform:translateX(760px); opacity:0; }
-  100%{ transform:translateX(760px); opacity:0; }
+  85%{ transform:translateX(855px); opacity:1; }
+  96%{ transform:translateX(950px); opacity:0; }
+  100%{ transform:translateX(950px); opacity:0; }
 }
 
 .lane-safe{ animation: safe-move 4.2s cubic-bezier(.6,0,.4,1) infinite; }
