@@ -399,6 +399,7 @@ header.nav{
 }
 .datasheet thead th{
   font-family:var(--serif); font-size:21px; font-weight:600; color:var(--paper);
+  background:var(--ink-3);
   border-bottom:1px solid var(--line-strong);
   padding:24px 20px 18px;
 }
@@ -409,10 +410,10 @@ header.nav{
 }
 .datasheet tbody th{
   font-family:var(--mono); font-size:11px; letter-spacing:0.08em;
-  text-transform:uppercase; color:var(--paper-faint);
+  text-transform:uppercase; color:color-mix(in srgb, var(--paper) 62%, transparent);
   width:180px; font-weight:500;
 }
-.datasheet tbody td{ font-size:15px; color:var(--paper-dim); }
+.datasheet tbody td{ font-size:15px; color:color-mix(in srgb, var(--paper) 78%, transparent); }
 .datasheet-cta-row td{ padding:28px 20px; }
 .btn-tier{ width:100%; justify-content:center; padding:12px 18px; font-size:13px; }
 
@@ -428,7 +429,7 @@ header.nav{
   font-family:var(--mono); font-size:10px; letter-spacing:0.08em;
   text-transform:uppercase; color:var(--signal);
   padding:3px 8px; border:1px solid var(--signal); border-radius:20px;
-  background:var(--ink-2);
+  background:var(--ink-3);
 }
 .datasheet tbody td:nth-child(3){
   background:color-mix(in srgb, var(--signal) 6%, var(--ink-2));
