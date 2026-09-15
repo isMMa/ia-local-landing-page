@@ -11,8 +11,8 @@
   --ink-2:      #16223A;
   --ink-3:      #1E2D4A;
   --paper:      #ECE6D8;
-  --paper-dim:  rgba(236,230,216,0.62);
-  --paper-faint:rgba(236,230,216,0.38);
+  --paper-dim:  rgba(236,230,216,0.72);
+  --paper-faint:rgba(236,230,216,0.55);
   --line:       rgba(236,230,216,0.12);
   --line-strong:rgba(236,230,216,0.32);
   --signal:     #00BEB4;
@@ -40,8 +40,8 @@
     --ink-2:      #E2DAC8;
     --ink-3:      #D7CDB7;
     --paper:      #14213A;
-    --paper-dim:  rgba(20,33,58,0.68);
-    --paper-faint:rgba(20,33,58,0.42);
+    --paper-dim:  rgba(20,33,58,0.80);
+    --paper-faint:rgba(20,33,58,0.60);
     --line:       rgba(20,33,58,0.12);
     --line-strong:rgba(20,33,58,0.32);
     --signal:     #049389;
@@ -60,8 +60,8 @@
   --ink-2:      #E2DAC8;
   --ink-3:      #D7CDB7;
   --paper:      #14213A;
-  --paper-dim:  rgba(20,33,58,0.68);
-  --paper-faint:rgba(20,33,58,0.42);
+  --paper-dim:  rgba(20,33,58,0.80);
+  --paper-faint:rgba(20,33,58,0.60);
   --line:       rgba(20,33,58,0.12);
   --line-strong:rgba(20,33,58,0.32);
   --signal:     #049389;
@@ -475,10 +475,10 @@ header.nav{
 }
 .datasheet tbody th{
   font-family:var(--mono); font-size:11px; letter-spacing:0.08em;
-  text-transform:uppercase; color:color-mix(in srgb, var(--paper) 62%, transparent);
+  text-transform:uppercase;   color:color-mix(in srgb, var(--paper) 80%, transparent);
   width:180px; font-weight:500;
 }
-.datasheet tbody td{ font-size:15px; color:color-mix(in srgb, var(--paper) 78%, transparent); }
+.datasheet tbody td{ font-size:15px; color:var(--paper); }
 .datasheet-cta-row td{ padding:28px 20px; }
 .btn-tier{ width:100%; justify-content:center; padding:12px 18px; font-size:13px; }
 
@@ -538,7 +538,7 @@ header.nav{
   display:grid; grid-template-columns:1fr 1fr; gap:18px 20px;
   margin-bottom:22px;
 }
-.cf-grid label{ display:flex; flex-direction:column; gap:8px; font-family:var(--mono); font-size:12px; color:var(--paper-dim); }
+.cf-grid label{ display:flex; flex-direction:column; gap:8px; font-family:var(--mono); font-size:12px; color:var(--paper); }
 .cf-full{ grid-column:1 / -1; }
 .contact-form input, .contact-form select, .contact-form textarea{
   font-family:var(--sans); font-size:15px; color:var(--paper);
