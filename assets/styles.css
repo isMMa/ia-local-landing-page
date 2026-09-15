@@ -19,7 +19,7 @@
   --signal-2:   #049389;
   --alert:      #A8432E;
   --alert-dim:  rgba(168,67,46,0.55);
-  --nav-bg:     rgba(15,26,43,0.86);
+  --nav-bg:     rgba(15,26,43,0.62);
   --hover-wash: rgba(236,230,216,0.05);
 
   --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
@@ -46,7 +46,7 @@
     --signal-2:   #037A72;
     --alert:      #8F3A28;
     --alert-dim:  rgba(143,58,40,0.55);
-    --nav-bg:     rgba(236,230,216,0.86);
+    --nav-bg:     rgba(236,230,216,0.62);
     --hover-wash: rgba(20,33,58,0.05);
   }
 }
@@ -64,7 +64,7 @@
   --signal-2:   #037A72;
   --alert:      #8F3A28;
   --alert-dim:  rgba(143,58,40,0.55);
-  --nav-bg:     rgba(236,230,216,0.86);
+  --nav-bg:     rgba(236,230,216,0.62);
   --hover-wash: rgba(20,33,58,0.05);
 }
 
