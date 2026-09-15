@@ -151,10 +151,17 @@
           <text x="1020" y="188" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--paper,0.45)">nube externa</text>
 
           <!-- leak packets -->
-          <g overflow="hidden">
+          <g>
             <circle class="lane-leak" cx="110" cy="150" r="5" fill="var(--alert)"></circle>
             <circle class="lane-leak d2" cx="110" cy="150" r="5" fill="var(--alert)"></circle>
             <circle class="lane-leak d3" cx="110" cy="150" r="5" fill="var(--alert)"></circle>
+          </g>
+
+          <!-- wall breach pings -->
+          <g>
+            <circle class="wall-breach" cx="640" cy="150" r="7" fill="none" stroke="var(--alert)" stroke-width="1.5"></circle>
+            <circle class="wall-breach d2" cx="640" cy="150" r="7" fill="none" stroke="var(--alert)" stroke-width="1.5"></circle>
+            <circle class="wall-breach d3" cx="640" cy="150" r="7" fill="none" stroke="var(--alert)" stroke-width="1.5"></circle>
           </g>
 
           <!-- ===== bottom lane: safe ===== -->
@@ -178,10 +185,18 @@
           <text x="410" y="312" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--paper,0.45)">servidor propio</text>
 
           <!-- safe packets -->
-          <g>
+          <g overflow="hidden">
             <circle class="lane-safe" cx="110" cy="272" r="5" fill="var(--signal)"></circle>
             <circle class="lane-safe d2" cx="110" cy="272" r="5" fill="var(--signal)"></circle>
             <circle class="lane-safe d3" cx="110" cy="272" r="5" fill="var(--signal)"></circle>
+          </g>
+
+          <!-- ambient dust -->
+          <g fill="var(--paper)">
+            <circle class="dust" cx="300" cy="72" r="1.4"></circle>
+            <circle class="dust d2" cx="860" cy="230" r="1.2"></circle>
+            <circle class="dust d3" cx="520" cy="330" r="1.5"></circle>
+            <circle class="dust d4" cx="1080" cy="60" r="1.1"></circle>
           </g>
         </svg>
 

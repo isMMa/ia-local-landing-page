@@ -312,9 +312,10 @@ header.nav{
 }
 .schematic-caption span b{ color:var(--paper-dim); font-weight:500; }
 
-.lane-leak{ animation: leak-move 4.2s linear infinite; }
-.lane-leak.d2{ animation-delay:-1.4s; }
-.lane-leak.d3{ animation-delay:-2.8s; }
+.lane-leak{
+  animation: leak-move 4.2s linear infinite;
+  filter: drop-shadow(0 0 3px var(--alert));
+}
 @keyframes leak-move{
   0%{ transform:translateX(0); opacity:0; }
   8%{ opacity:1; }
@@ -323,21 +324,50 @@ header.nav{
   100%{ transform:translateX(950px); opacity:0; }
 }
 
-.lane-safe{ animation: safe-move 4.2s cubic-bezier(.6,0,.4,1) infinite; }
-.lane-safe.d2{ animation-delay:-1.4s; }
-.lane-safe.d3{ animation-delay:-2.8s; }
+.lane-safe{
+  animation: safe-move 4.2s cubic-bezier(.6,0,.4,1) infinite;
+  filter: drop-shadow(0 0 4px var(--signal-glow));
+}
 @keyframes safe-move{
-  0%{   transform:translateX(0); }
-  42%{  transform:translateX(330px); }
+  0%{   transform:translateX(0); opacity:0; }
+  6%{   opacity:1; }
+  42%{  transform:translateX(330px); opacity:1; }
   50%{  transform:translateX(330px); }
   92%{  transform:translateX(0); }
-  100%{ transform:translateX(0); }
+  98%{  transform:translateX(0); opacity:0; }
+  100%{ transform:translateX(0); opacity:0; }
 }
 
-.pulse-dot{ animation:pulse 2.4s ease-in-out infinite; }
+.lane-leak.d2, .lane-safe.d2{ animation-delay:-1.4s; }
+.lane-leak.d3, .lane-safe.d3{ animation-delay:-2.8s; }
+
+.wall-breach{
+  transform-box:fill-box; transform-origin:center;
+  animation: breach-ping 4.2s linear infinite; opacity:0;
+}
+.wall-breach.d2{ animation-delay:-1.4s; }
+.wall-breach.d3{ animation-delay:-2.8s; }
+@keyframes breach-ping{
+  0%,39%{ opacity:0; transform:scale(0.3); }
+  42%{ opacity:0.9; transform:scale(1); }
+  58%{ opacity:0; transform:scale(2.4); }
+  100%{ opacity:0; transform:scale(2.4); }
+}
+
+.pulse-dot{ animation:pulse 4.2s ease-in-out infinite; }
 @keyframes pulse{
-  0%,100%{ opacity:0.4; }
+  0%,42%,60%,100%{ opacity:0.4; }
   50%{ opacity:1; }
+}
+
+.dust{ animation:dust-drift 14s ease-in-out infinite alternate; }
+.dust.d2{ animation-duration:18s; animation-delay:-6s; }
+.dust.d3{ animation-duration:16s; animation-delay:-3s; }
+.dust.d4{ animation-duration:20s; animation-delay:-9s; }
+@keyframes dust-drift{
+  from{ transform:translate(0,0); opacity:0.04; }
+  50%{ opacity:0.1; }
+  to{ transform:translate(9px,-7px); opacity:0.05; }
 }
 
 /* ---------- problem / margin notes ---------- */
