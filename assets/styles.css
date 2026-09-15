@@ -193,6 +193,11 @@ header.nav{
 }
 .wordmark .mark::after{
   content:""; position:absolute; inset:3px; background:var(--signal);
+  animation:mark-ping 2.6s ease-in-out infinite;
+}
+@keyframes mark-ping{
+  0%,100%{ box-shadow:0 0 0 0 transparent; opacity:0.9; }
+  50%{ box-shadow:0 0 12px 2px var(--signal-glow); opacity:1; }
 }
 .nav-links{ display:flex; align-items:center; gap:32px; }
 .brand-group{ display:flex; align-items:center; gap:16px; }
